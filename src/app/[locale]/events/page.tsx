@@ -1,8 +1,8 @@
-import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import HeroSection from "@/components/HeroSection";
 import SectionHeading from "@/components/SectionHeading";
 import { heroImages } from "@/lib/images";
+import { translate } from "@/lib/translation";
 
 const events = [
   { icon: "🕌", title: "Weekly Friday Prayers", frequency: "Every Friday", description: "Congregational Jumu'ah prayer followed by Quran recitation, lecture, and community fellowship.", category: "Weekly" },
@@ -15,8 +15,13 @@ const events = [
   { icon: "👨‍👩‍👧‍👦", title: "Community Gatherings", frequency: "Monthly", description: "Monthly family nights with potluck dinners, games, discussions, and activities for all ages.", category: "Monthly" },
 ];
 
-export default async function EventsPage() {
-  const t = await getTranslations("events");
+export default async function EventsPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = translate(locale, "events");
 
   return (
     <>

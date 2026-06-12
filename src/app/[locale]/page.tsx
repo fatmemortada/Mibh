@@ -1,13 +1,18 @@
-import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import HeroSection from "@/components/HeroSection";
 import SectionHeading from "@/components/SectionHeading";
 import { heroImages, mosqueImages, mibhPhotos } from "@/lib/images";
+import { translate } from "@/lib/translation";
 import MuharramSection from "@/components/MuharramSection";
 
-export default async function HomePage() {
-  const t = await getTranslations("home");
+export default async function HomePage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = translate(locale, "home");
 
   const programs = [
     { icon: "📖", title: t("weeklyPrograms"), description: t("weeklyDesc"), items: ["Friday Congregational Prayer", "Quran Recitation & Tafsir", "Islamic Studies Classes", "Family Gatherings"], href: "/programs", image: mibhPhotos.photo1 },
@@ -38,10 +43,8 @@ export default async function HomePage() {
         ]}
       />
 
-      {/* Muharram 1448 AH Featured Section */}
       <MuharramSection />
 
-      {/* About / Who We Are */}
       <section className="py-16 bg-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading title={t("whoWeAre")} subtitle={t("aboutSubtitle")} description={t("aboutDescription")} />
@@ -49,13 +52,7 @@ export default async function HomePage() {
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center">
               <div className="lg:col-span-2">
                 <div className="relative rounded-xl overflow-hidden shadow-lg">
-                  <Image
-                    src={mibhPhotos.photo2}
-                    alt="MIBH Montreal Community"
-                    width={600}
-                    height={400}
-                    className="w-full h-64 sm:h-80 object-cover hover:scale-105 transition-transform duration-500"
-                  />
+                  <Image src={mibhPhotos.photo2} alt="MIBH Montreal Community" width={600} height={400} className="w-full h-64 sm:h-80 object-cover hover:scale-105 transition-transform duration-500" />
                 </div>
               </div>
               <div className="lg:col-span-3">
@@ -69,7 +66,6 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Core Beliefs */}
       <section className="py-16 relative">
         <div className="absolute inset-0">
           <Image src={mosqueImages.islamicPattern} alt="" fill className="object-cover opacity-5" />
@@ -92,7 +88,6 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Programs */}
       <section className="py-16 bg-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading title={t("programsTitle")} subtitle={t("programsSubtitle")} description={t("programsDescription")} />
@@ -110,8 +105,7 @@ export default async function HomePage() {
                   <ul className="space-y-1.5 flex-1">
                     {p.items.map((item) => (
                       <li key={item} className="text-xs text-gray-700 flex items-start gap-2">
-                        <span className="text-primary mt-0.5 shrink-0">✦</span>
-                        {item}
+                        <span className="text-primary mt-0.5 shrink-0">✦</span>{item}
                       </li>
                     ))}
                   </ul>
@@ -125,7 +119,6 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* CTA / Support */}
       <section className="py-20 relative bg-primary">
         <div className="absolute inset-0">
           <Image src={mibhPhotos.photo3} alt="" fill className="object-cover opacity-25" />

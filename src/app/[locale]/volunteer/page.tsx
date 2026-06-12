@@ -1,14 +1,18 @@
-import { getTranslations } from "next-intl/server";
 import HeroSection from "@/components/HeroSection";
 import SectionHeading from "@/components/SectionHeading";
 import ContactForm from "@/components/ContactForm";
 import { heroImages } from "@/lib/images";
+import { translate } from "@/lib/translation";
 
-export default async function VolunteerPage() {
-  const t = await getTranslations("volunteer");
+export default async function VolunteerPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = translate(locale, "volunteer");
 
   const benefits = ["Gain valuable skills and experience", "Build meaningful connections in the community", "Earn spiritual rewards (thawab) through service", "Make a tangible difference in people's lives", "Develop leadership and teamwork abilities", "Be part of something greater than yourself"];
-
   const opportunities = [
     { icon: "🎉", title: t("eventsTeam"), description: t("eventsTeamDesc") },
     { icon: "📚", title: t("educationPrograms"), description: t("educationProgramsDesc") },

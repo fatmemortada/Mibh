@@ -1,11 +1,16 @@
-import { getTranslations } from "next-intl/server";
 import HeroSection from "@/components/HeroSection";
 import SectionHeading from "@/components/SectionHeading";
 import InfoCard from "@/components/InfoCard";
 import { heroImages } from "@/lib/images";
+import { translate } from "@/lib/translation";
 
-export default async function AboutPage() {
-  const t = await getTranslations("about");
+export default async function AboutPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = translate(locale, "about");
 
   const values = [
     { icon: "🕌", title: t("faith"), description: t("faithDesc") },

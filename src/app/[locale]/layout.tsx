@@ -1,11 +1,14 @@
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { Geist, Geist_Mono } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import type { Metadata } from "next";
+import en from "@/messages/en.json";
+import ur from "@/messages/ur.json";
+import ar from "@/messages/ar.json";
 import "../globals.css";
 
 const geistSans = Geist({
@@ -17,6 +20,10 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
 
 export const metadata: Metadata = {
   title: {
@@ -40,7 +47,8 @@ export default async function LocaleLayout({
     notFound();
   }
 
-  const messages = await getMessages();
+  setRequestLocale(locale);
+  const messages = locale === "ur" ? ur : locale === "ar" ? ar : en;
   const isRtl = locale === "ar" || locale === "ur";
 
   return (
@@ -53,7 +61,7 @@ export default async function LocaleLayout({
         <NextIntlClientProvider messages={messages}>
           <Navbar />
           <main className="flex-1">{children}</main>
-          <Footer />
+          <Footer locale={locale} />
         </NextIntlClientProvider>
       </body>
     </html>

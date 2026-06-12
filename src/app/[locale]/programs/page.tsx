@@ -1,12 +1,17 @@
-import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import HeroSection from "@/components/HeroSection";
 import SectionHeading from "@/components/SectionHeading";
 import InfoCard from "@/components/InfoCard";
 import { heroImages } from "@/lib/images";
+import { translate } from "@/lib/translation";
 
-export default async function ProgramsPage() {
-  const t = await getTranslations("programs");
+export default async function ProgramsPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = translate(locale, "programs");
 
   const weekly = ["Friday Congregational Prayer (Salat al-Jumu'ah)", "Weekly Quran Recitation Circle", "Tafsir (Quranic Exegesis) Classes", "Islamic Studies & Theology", "Family Gatherings & Potlucks", "Community Discussions & Q&A Sessions"];
   const youth = ["Leadership Development Workshops", "Sports Activities & Tournaments", "Quran Memorization Competitions", "Volunteer & Service Opportunities", "Youth Discussion Circles", "Career & Academic Mentorship"];

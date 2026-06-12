@@ -1,5 +1,5 @@
-import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import { translate } from "@/lib/translation";
 
 function FacebookIcon() {
   return (
@@ -25,9 +25,13 @@ function YoutubeIcon() {
   );
 }
 
-export default async function Footer() {
-  const t = await getTranslations("footer");
-  const nav = await getTranslations("nav");
+interface FooterProps {
+  locale: string;
+}
+
+export default function Footer({ locale }: FooterProps) {
+  const t = translate(locale, "footer");
+  const nav = translate(locale, "nav");
 
   const quickLinks = [
     { href: "/about", label: nav("about") },
@@ -54,24 +58,16 @@ export default async function Footer() {
 
   return (
     <footer className="bg-gray-900 text-gray-300 mt-auto">
-      {/* Social Media Bar — prominent section above main footer */}
       <div className="border-b border-gray-800 bg-gray-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <h3 className="text-white font-bold text-lg">Follow Us on Social Media</h3>
             <div className="flex items-center gap-4">
               {socialLinks.map(({ href, label, Icon }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <a key={label} href={href} target="_blank" rel="noopener noreferrer"
                   className="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gray-800 hover:bg-gold text-gray-300 hover:text-white transition-all font-medium text-sm shadow-md"
-                  aria-label={label}
-                  title={label}
-                >
-                  <Icon />
-                  {label}
+                  aria-label={label} title={label}>
+                  <Icon />{label}
                 </a>
               ))}
             </div>
@@ -79,10 +75,8 @@ export default async function Footer() {
         </div>
       </div>
 
-      {/* Main Footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-4">
               <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center overflow-hidden">
@@ -95,36 +89,22 @@ export default async function Footer() {
             </div>
             <p className="text-sm leading-relaxed">{t("description")}</p>
           </div>
-
-          {/* Quick Links */}
           <div>
             <h3 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">{t("quickLinks")}</h3>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href} className="text-sm hover:text-gold transition-colors">
-                    {link.label}
-                  </Link>
-                </li>
+                <li key={link.href}><Link href={link.href} className="text-sm hover:text-gold transition-colors">{link.label}</Link></li>
               ))}
             </ul>
           </div>
-
-          {/* Get Involved */}
           <div>
             <h3 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">{t("getInvolved")}</h3>
             <ul className="space-y-2">
               {getInvolved.map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href} className="text-sm hover:text-gold transition-colors">
-                    {link.label}
-                  </Link>
-                </li>
+                <li key={link.href}><Link href={link.href} className="text-sm hover:text-gold transition-colors">{link.label}</Link></li>
               ))}
             </ul>
           </div>
-
-          {/* Contact */}
           <div>
             <h3 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">{t("contact")}</h3>
             <ul className="space-y-2 text-sm">
@@ -134,7 +114,6 @@ export default async function Footer() {
             </ul>
           </div>
         </div>
-
         <div className="border-t border-gray-700 mt-8 pt-8 text-center text-sm text-gray-500">
           <p>&copy; {new Date().getFullYear()} {t("rights")}</p>
         </div>

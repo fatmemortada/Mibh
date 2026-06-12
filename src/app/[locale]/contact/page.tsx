@@ -1,15 +1,20 @@
-import { getTranslations } from "next-intl/server";
 import HeroSection from "@/components/HeroSection";
 import SectionHeading from "@/components/SectionHeading";
 import ContactForm from "@/components/ContactForm";
 import { heroImages } from "@/lib/images";
+import { translate } from "@/lib/translation";
 
-export default async function ContactPage() {
-  const t = await getTranslations("contact");
+export default async function ContactPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = translate(locale, "contact");
 
   const info = [
-    { icon: "📧", title: t("email"), value: "info@mibhmtl.com", description: t("emailDesc") },
-    { icon: "📞", title: t("phone"), value: "(514) XXX-XXXX", description: t("phoneDesc") },
+    { icon: "📧", title: t("email"), value: "mibhmtl@gmail.com", description: t("emailDesc") },
+    { icon: "📞", title: t("phone"), value: "(514) 963-7907", description: t("phoneDesc") },
     { icon: "📍", title: t("address"), value: "Montreal, Quebec, Canada", description: t("addressDesc") },
   ];
 
@@ -49,10 +54,7 @@ export default async function ContactPage() {
                 {topics.map((item) => (
                   <div key={item.title} className="flex items-start gap-3 bg-white rounded-lg p-4 border border-gray-200">
                     <span className="text-xl mt-0.5">{item.icon}</span>
-                    <div>
-                      <h3 className="font-semibold text-gray-900">{item.title}</h3>
-                      <p className="text-sm text-gray-600">{item.description}</p>
-                    </div>
+                    <div><h3 className="font-semibold text-gray-900">{item.title}</h3><p className="text-sm text-gray-600">{item.description}</p></div>
                   </div>
                 ))}
               </div>

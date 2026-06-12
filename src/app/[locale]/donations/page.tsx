@@ -1,11 +1,16 @@
-import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import HeroSection from "@/components/HeroSection";
 import SectionHeading from "@/components/SectionHeading";
 import { heroImages } from "@/lib/images";
+import { translate } from "@/lib/translation";
 
-export default async function DonationsPage() {
-  const t = await getTranslations("donations");
+export default async function DonationsPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = translate(locale, "donations");
 
   const options = [
     { icon: "💚", title: t("oneTime"), description: t("oneTimeDesc"), featured: false },
@@ -34,12 +39,8 @@ export default async function DonationsPage() {
             <div className="text-5xl mb-4">💳</div>
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">Make a Secure Donation</h2>
             <p className="text-gray-600 mb-6">Use our secure Square payment link to make a one-time or recurring donation. Every contribution supports our mission.</p>
-            <a
-              href="https://square.link/u/X4eHO0Co"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block px-10 py-4 bg-gold text-white font-bold text-lg rounded-xl hover:bg-gold-light transition-all transform hover:scale-105 shadow-lg"
-            >
+            <a href="https://square.link/u/X4eHO0Co" target="_blank" rel="noopener noreferrer"
+              className="inline-block px-10 py-4 bg-gold text-white font-bold text-lg rounded-xl hover:bg-gold-light transition-all transform hover:scale-105 shadow-lg">
               Donate Now via Square →
             </a>
             <p className="text-xs text-gray-400 mt-4">Secure payment processed by Square</p>
@@ -55,8 +56,7 @@ export default async function DonationsPage() {
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {impact.map((item) => (
                   <li key={item} className="flex items-start gap-3">
-                    <span className="text-primary text-lg mt-0.5">✓</span>
-                    <span className="text-gray-700">{item}</span>
+                    <span className="text-primary text-lg mt-0.5">✓</span><span className="text-gray-700">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -75,7 +75,8 @@ export default async function DonationsPage() {
                 <div className="text-4xl mb-3">{opt.icon}</div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{opt.title}</h3>
                 <p className="text-sm text-gray-600 mb-4">{opt.description}</p>
-                <a href="https://square.link/u/X4eHO0Co" target="_blank" rel="noopener noreferrer" className="block w-full py-2.5 bg-primary text-white font-semibold rounded-lg hover:bg-primary-dark transition-colors text-sm text-center">Donate →</a>
+                <a href="https://square.link/u/X4eHO0Co" target="_blank" rel="noopener noreferrer"
+                  className="block w-full py-2.5 bg-primary text-white font-semibold rounded-lg hover:bg-primary-dark transition-colors text-sm text-center">Donate →</a>
               </div>
             ))}
           </div>

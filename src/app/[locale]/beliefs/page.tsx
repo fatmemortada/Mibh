@@ -1,8 +1,8 @@
-import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import HeroSection from "@/components/HeroSection";
 import SectionHeading from "@/components/SectionHeading";
 import { heroImages } from "@/lib/images";
+import { translate } from "@/lib/translation";
 
 const twelveImams = [
   { name: "Imam Ali ibn Abi Talib", title: "Amir al-Mu'minin", arabic: "علي بن أبي طالب", description: "The cousin and son-in-law of Prophet Muhammad (PBUH), the first Imam, and the rightful successor. Known for his unparalleled knowledge, justice, and courage." },
@@ -27,8 +27,13 @@ const usulAlDin = [
   { title: "Qiyamah", arabic: "القيامة", subtitle: "Day of Judgment", description: "Every person will be resurrected and held accountable before Allah. The righteous will enter Paradise.", verse: "So whoever does an atom's weight of good will see it, and whoever does an atom's weight of evil will see it.", verseRef: "Surah Az-Zalzalah (99:7-8)" },
 ];
 
-export default async function BeliefsPage() {
-  const t = await getTranslations("beliefs");
+export default async function BeliefsPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = translate(locale, "beliefs");
 
   return (
     <>
