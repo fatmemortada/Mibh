@@ -15,7 +15,7 @@ export default async function ContactPage({
   const info = [
     { icon: "📧", title: t("email"), value: "mibhmtl@gmail.com", description: t("emailDesc") },
     { icon: "📞", title: t("phone"), value: "(514) 963-7907", description: t("phoneDesc") },
-    { icon: "📍", title: t("address"), value: "Montreal, Quebec, Canada", description: t("addressDesc") },
+    { icon: "📍", title: t("address"), value: "8270 Avenue Mountain Sights, Suite 301, Montreal QC H4P 2B7", description: t("addressDesc") },
   ];
 
   const topics = [
@@ -72,7 +72,7 @@ export default async function ContactPage({
           <div className="bg-gray-200 rounded-xl h-64 flex items-center justify-center max-w-3xl mx-auto">
             <div className="text-center">
               <p className="text-4xl mb-2">📍</p>
-              <p className="text-gray-600 font-medium">Montreal, Quebec, Canada</p>
+              <p className="text-gray-600 font-medium">8270 Avenue Mountain Sights, Suite 301, Montreal QC H4P 2B7</p>
               <p className="text-gray-400 text-sm mt-1">Map integration coming soon</p>
             </div>
           </div>

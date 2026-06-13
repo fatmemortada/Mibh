@@ -110,7 +110,7 @@ export default function Footer({ locale }: FooterProps) {
             <ul className="space-y-2 text-sm">
               <li>📧 mibhmtl@gmail.com</li>
               <li>📞 (514) 963-7907</li>
-              <li>📍 Montreal, Quebec, Canada</li>
+              <li>📍 8270 Avenue Mountain Sights, Suite 301, Montreal QC H4P 2B7</li>
             </ul>
           </div>
         </div>

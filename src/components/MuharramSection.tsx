@@ -103,7 +103,7 @@ export default function MuharramSection() {
                   </p>
                   <p className="text-gray-400 text-xs">Charitable Organization</p>
                   <p className="text-gray-300 text-xs mt-1">
-                    301-8270 Mountain Sights Avenue, Montreal, Quebec H4P 2B7
+                    8270 Avenue Mountain Sights, Suite 301, Montreal QC H4P 2B7
                   </p>
                 </div>
               </div>
@@ -149,7 +149,7 @@ export default function MuharramSection() {
               </div>
               <div className="flex gap-3">
                 <a
-                  href="https://maps.google.com/?q=301-8270+Mountain+Sights+Avenue+Montreal+Quebec+H4P+2B7"
+                  href="https://maps.google.com/?q=8270+Avenue+Mountain+Sights+Suite+301+Montreal+QC+H4P+2B7"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-5 py-2.5 bg-gold text-white font-semibold rounded-lg hover:bg-gold-light transition-colors text-sm shadow-lg"
