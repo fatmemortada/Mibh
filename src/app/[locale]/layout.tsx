@@ -9,6 +9,7 @@ import type { Metadata } from "next";
 import en from "@/messages/en.json";
 import ur from "@/messages/ur.json";
 import ar from "@/messages/ar.json";
+import fr from "@/messages/fr.json";
 import "../globals.css";
 
 const geistSans = Geist({
@@ -43,12 +44,12 @@ export default async function LocaleLayout({
 }) {
   const { locale } = await params;
 
-  if (!routing.locales.includes(locale as "en" | "ur" | "ar")) {
+  if (!routing.locales.includes(locale as "en" | "ur" | "ar" | "fr")) {
     notFound();
   }
 
   setRequestLocale(locale);
-  const messages = locale === "ur" ? ur : locale === "ar" ? ar : en;
+  const messages = locale === "ur" ? ur : locale === "ar" ? ar : locale === "fr" ? fr : en;
   const isRtl = locale === "ar" || locale === "ur";
 
   return (
