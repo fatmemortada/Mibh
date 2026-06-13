@@ -53,7 +53,7 @@ export default function Footer({ locale }: FooterProps) {
   const socialLinks = [
     { href: "https://www.facebook.com/share/18D7zSi4KS/", label: "Facebook", Icon: FacebookIcon },
     { href: "https://www.instagram.com/mosqueimambargahbabul", label: "Instagram", Icon: InstagramIcon },
-    { href: "https://youtube.com/@mosqueimambargababulhawai6222", label: "YouTube", Icon: YoutubeIcon },
+    { href: "https://youtube.com/@mosqueimambargababulhawai6222?si=5xe3455dL0e72kd2", label: "YouTube", Icon: YoutubeIcon },
   ];
 
   return (
