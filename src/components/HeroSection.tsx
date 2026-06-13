@@ -38,12 +38,12 @@ export default function HeroSection({ title, subtitle, description, buttons, sma
         </div>
       )}
 
-      {/* Decorative pattern */}
-      <div className="absolute inset-0 opacity-10">
+      {/* Decorative Islamic geometric pattern */}
+      <div className="absolute inset-0 opacity-[0.06]">
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='0.8' opacity='0.7'%3E%3Cpath d='M60 0L75 15L90 0L90 15L105 15L105 30L120 30L105 45L120 60L105 75L120 90L105 90L105 105L90 105L90 120L75 105L60 120L45 105L30 120L30 105L15 105L15 90L0 90L15 75L0 60L15 45L0 30L15 30L15 15L30 15L30 0Z'/%3E%3Ccircle cx='60' cy='60' r='25' stroke-dasharray='3 4'/%3E%3Ccircle cx='60' cy='60' r='38'/%3E%3C/g%3E%3C/svg%3E")`,
           }}
         />
       </div>
