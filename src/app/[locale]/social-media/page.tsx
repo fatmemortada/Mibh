@@ -4,7 +4,7 @@ import SectionHeading from "@/components/SectionHeading";
 const platforms = [
   { icon: "📷", name: "Instagram", handle: "@mosqueimambargahbabul", url: "https://www.instagram.com/mosqueimambargahbabul", description: "Follow us for daily updates, event photos, and community highlights." },
   { icon: "📘", name: "Facebook", handle: "Mosque Imambargah Babul Hawaij", url: "https://www.facebook.com/share/18D7zSi4KS/", description: "Like our page for event announcements, live streams, and community discussions." },
-  { icon: "▶️", name: "YouTube", handle: "@mosqueimambargababulhawai6222", url: "https://youtube.com/@mosqueimambargababulhawai6222?si=5xe3455dL0e72kd2", description: "Subscribe for lectures, programs, and educational content from our mosque." },
+  { icon: "▶️", name: "YouTube", handle: "@mosqueimambargahbabulhawai6222", url: "https://www.youtube.com/@mosqueimambargahbabulhawai6222", description: "Subscribe for lectures, programs, and educational content from our mosque." },
   { icon: "🎵", name: "TikTok", handle: "@mibhmtl", url: "https://tiktok.com/@mibhmtl", description: "Short-form content highlighting our community and programs." },
   { icon: "💬", name: "WhatsApp", handle: "Community Group", url: "#", description: "Join our WhatsApp community group for instant updates and announcements." },
 ];
