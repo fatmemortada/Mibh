@@ -55,7 +55,7 @@ export default function HeroSection({ title, subtitle, description, buttons, sma
         <h1 className={`font-bold tracking-tight ${small ? "text-3xl md:text-4xl" : "text-4xl md:text-6xl"}`}>
           {title}
         </h1>
-        <p className="absolute bottom-6 right-4 sm:right-6 lg:right-8 text-white/70 text-sm md:text-base max-w-md text-left leading-relaxed">
+        <p className="absolute bottom-6 right-2 sm:right-3 lg:right-4 text-white/60 text-xs md:text-sm max-w-[220px] md:max-w-[260px] text-left leading-relaxed">
           {description}
         </p>
         {buttons && buttons.length > 0 && (
