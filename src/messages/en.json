@@ -1,8 +1,8 @@
 {
   "site": {
     "title": "MIBH Montreal — Islamic Community Center",
-    "subtitle": "Islamic Community Center",
-    "description": "A Shia Islamic community dedicated to faith, knowledge, service, and unity."
+    "subtitle": "Twelver Shia Islamic Center in Montreal",
+    "description": "A Twelver Shia Islamic community dedicated to faith, knowledge, service, and unity."
   },
   "nav": {
     "home": "Home",
@@ -21,8 +21,8 @@
   },
   "home": {
     "heroTitle": "Welcome to MIBH Montreal",
-    "heroSubtitle": "Islamic Community Center",
-    "heroDescription": "A Shia Islamic community dedicated to faith, knowledge, service, and unity. Our mission is to strengthen the spiritual, educational, and social well-being of Muslims while promoting understanding, compassion, and community engagement.",
+    "heroSubtitle": "Twelver Shia Islamic Center in Montreal",
+    "heroDescription": "A Twelver Shia Islamic community dedicated to faith, knowledge, service, and unity. Our mission is to strengthen the spiritual, educational, and social well-being of Muslims while promoting understanding, compassion, and community engagement.",
     "learnMore": "Learn More",
     "donate": "Donate",
     "joinPrograms": "Join Our Programs",
@@ -265,6 +265,7 @@
     "en": "English",
     "ur": "اردو",
     "ar": "العربية",
+    "fr": "Français",
     "switchTo": "Language"
   }
 }

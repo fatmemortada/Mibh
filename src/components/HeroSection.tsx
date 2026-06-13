@@ -48,7 +48,7 @@ export default function HeroSection({ title, subtitle, description, buttons, sma
         />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center h-full flex flex-col justify-center min-h-[400px] md:min-h-[500px]">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center h-full flex flex-col min-h-[400px] md:min-h-[500px] pt-8 md:pt-12">
         {subtitle && (
           <p className="text-gold-light font-medium text-sm uppercase tracking-widest mb-3">{subtitle}</p>
         )}
@@ -59,7 +59,7 @@ export default function HeroSection({ title, subtitle, description, buttons, sma
           {description}
         </p>
         {buttons && buttons.length > 0 && (
-          <div className="flex flex-wrap justify-center gap-4 mt-8">
+          <div className="flex flex-wrap justify-center gap-4 mt-auto mb-16 md:mb-20">
             {buttons.map((btn) => (
               <Link
                 key={btn.label}
