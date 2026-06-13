@@ -26,14 +26,22 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-export const metadata: Metadata = {
-  title: {
-    default: "MIBH Montreal — Islamic Community Center",
-    template: "%s | MIBH Montreal",
-  },
-  description:
-    "A Shia Islamic community dedicated to faith, knowledge, service, and unity in Montreal.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const siteData = locale === "fr" ? fr.site : locale === "ur" ? ur.site : locale === "ar" ? ar.site : en.site;
+  const siteTitle = siteData.title || "MIBH Montreal";
+  return {
+    title: {
+      default: siteTitle,
+      template: `%s | MIBH Montreal`,
+    },
+    description: siteData.description,
+  };
+}
 
 export default async function LocaleLayout({
   children,

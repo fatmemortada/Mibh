@@ -23,6 +23,7 @@ const localeLabels: Record<string, string> = {
   en: "English",
   ur: "اردو",
   ar: "العربية",
+  fr: "Français",
 };
 
 export default function Navbar() {
@@ -36,6 +37,7 @@ export default function Navbar() {
   const subtitleText =
     locale === "ar" ? "المركز الإسلامي" :
     locale === "ur" ? "اسلامی کمیونٹی سینٹر" :
+    locale === "fr" ? "Centre Islamique Chiite Duodécimain" :
     "Islamic Community Center";
 
   return (
@@ -93,7 +95,7 @@ export default function Navbar() {
                     <Link
                       key={l}
                       href={pathname}
-                      locale={l as "en" | "ur" | "ar"}
+                      locale={l as "en" | "ur" | "ar" | "fr"}
                       className={`block px-4 py-2 text-sm hover:bg-cream transition-colors ${
                         l === locale ? "font-bold text-primary" : "text-gray-700"
                       }`}
@@ -121,7 +123,7 @@ export default function Navbar() {
                   <Link
                     key={l}
                     href={pathname}
-                    locale={l as "en" | "ur" | "ar"}
+                    locale={l as "en" | "ur" | "ar" | "fr"}
                     className={`block px-4 py-2 text-sm hover:bg-cream transition-colors ${
                       l === locale ? "font-bold text-primary" : "text-gray-700"
                     }`}
