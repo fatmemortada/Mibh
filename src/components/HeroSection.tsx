@@ -30,11 +30,11 @@ export default function HeroSection({ title, subtitle, description, buttons, sma
             src={bgImage}
             alt=""
             fill
-            className="object-cover opacity-30"
+            className="object-cover opacity-60"
             sizes="100vw"
             priority
           />
-          <div className="absolute inset-0 bg-primary/70" />
+          <div className="absolute inset-0 bg-primary/40" />
         </div>
       )}
 
