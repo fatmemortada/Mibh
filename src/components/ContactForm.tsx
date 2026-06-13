@@ -12,10 +12,10 @@ export default function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="bg-green-50 border border-green-200 rounded-xl p-8 text-center">
+      <div className="bg-primary/10 border border-primary/20 rounded-xl p-8 text-center">
         <div className="text-4xl mb-3">✅</div>
-        <h3 className="text-xl font-bold text-green-800">Thank you for your message!</h3>
-        <p className="text-green-700 mt-2">We will get back to you as soon as possible, insha&apos;Allah.</p>
+        <h3 className="text-xl font-bold text-primary-dark">Thank you for your message!</h3>
+        <p className="text-primary mt-2">We will get back to you as soon as possible, insha&apos;Allah.</p>
       </div>
     );
   }
