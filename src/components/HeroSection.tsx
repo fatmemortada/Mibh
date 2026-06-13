@@ -30,11 +30,11 @@ export default function HeroSection({ title, subtitle, description, buttons, sma
             src={bgImage}
             alt=""
             fill
-            className="object-cover opacity-60"
+            className="object-cover object-top opacity-60"
             sizes="100vw"
             priority
           />
-          <div className="absolute inset-0 bg-primary/40" />
+          <div className="absolute inset-0 bg-gradient-to-b from-primary/20 via-primary/35 to-primary/50" />
         </div>
       )}
 
@@ -48,14 +48,14 @@ export default function HeroSection({ title, subtitle, description, buttons, sma
         />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center h-full flex flex-col justify-center min-h-[400px] md:min-h-[500px]">
         {subtitle && (
           <p className="text-gold-light font-medium text-sm uppercase tracking-widest mb-3">{subtitle}</p>
         )}
         <h1 className={`font-bold tracking-tight ${small ? "text-3xl md:text-4xl" : "text-4xl md:text-6xl"}`}>
           {title}
         </h1>
-        <p className={`mx-auto mt-4 text-white/90 max-w-3xl ${small ? "text-lg" : "text-lg md:text-xl"}`}>
+        <p className="absolute bottom-6 right-4 sm:right-6 lg:right-8 text-white/70 text-sm md:text-base max-w-md text-left leading-relaxed">
           {description}
         </p>
         {buttons && buttons.length > 0 && (
