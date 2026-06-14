@@ -119,6 +119,31 @@ export default async function HomePage({
         </div>
       </section>
 
+      <section className="py-16 relative">
+        <div className="absolute inset-0">
+          <Image src={mosqueImages.islamicPattern} alt="" fill className="object-cover opacity-5" />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading title={t("boardTitle")} subtitle={t("boardSubtitle")} description={t("boardDescription")} />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { name: "Mian Imtiaz Bhatti" },
+              { name: "Nafees Abbas Malik" },
+              { name: "Syed Suhail Akbar" },
+              { name: "Muhammad Abbas Bhatti" },
+            ].map((member, i) => (
+              <div key={member.name} className="bg-white border border-gray-200 rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-shadow">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
+                  <span className="text-primary font-bold text-xl">{i + 1}</span>
+                </div>
+                <h3 className="font-bold text-primary text-lg">{member.name}</h3>
+                <p className="text-sm text-gold font-medium mt-1">{t("boardMember")}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="py-20 relative bg-primary">
         <div className="absolute inset-0">
           <Image src={mibhPhotos.photo3} alt="" fill className="object-cover opacity-25" />
